@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thành Viên AZ Tea — Tích Điểm & Ưu Đãi</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --pink: #E8416A;
+    --pink-light: #f26b8a;
+    --cream: #FFF5EE;
+    --gold: #D4A017;
+    --gold-light: #f0c840;
+    --dark: #3a1a2a;
+    --text: #4a2535;
+    --silver: #8a9bb0;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, var(--pink) 0%, #c02050 100%);
+    padding: 32px 20px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -20px;
+    width: 220px; height: 220px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: #fff;
+    letter-spacing: 4px;
+    line-height: 1;
+  }
+  .logo span { color: var(--gold-light); }
+  header p {
+    color: rgba(255,255,255,0.9);
+    font-size: 15px;
+    margin-top: 6px;
+    letter-spacing: 1px;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-top: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  /* MAIN CONTENT */
+  main { max-width: 480px; margin: 0 auto; padding: 0 16px 60px; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: var(--pink);
+    text-align: center;
+    margin: 32px 0 16px;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 48px; height: 3px;
+    background: var(--gold);
+    margin: 6px auto 0;
+    border-radius: 2px;
+  }
+
+  /* POINTS RULE */
+  .points-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin: 24px 0 0;
+    border: 1.5px solid #f5dde5;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 12px rgba(232,65,106,0.08);
+  }
+  .points-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+  .points-rule {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--pink);
+    line-height: 1.2;
+  }
+  .points-rule span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    display: block;
+    margin-top: 2px;
+  }
+  .points-note {
+    font-size: 13px;
+    color: #888;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: #fff8fa;
+    border-radius: 8px;
+    border-left: 3px solid var(--pink);
+  }
+
+  /* TIER CARDS */
+  .tiers { display: flex; flex-direction: column; gap: 14px; margin-top: 4px; }
+
+  .tier-card {
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tier-card::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 100px; height: 100px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 50%;
+  }
+
+  .tier-card.silver {
+    background: linear-gradient(135deg, #6b7f95 0%, #8a9bb0 100%);
+    color: #fff;
+  }
+  .tier-card.gold {
+    background: linear-gradient(135deg, #b8860b 0%, #D4A017 60%, #f0c840 100%);
+    color: #fff;
+  }
+  .tier-card.diamond {
+    background: linear-gradient(135deg, var(--pink) 0%, #c02050 100%);
+    color: #fff;
+  }
+
+  .tier-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .tier-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+  .tier-icon { font-size: 32px; }
+  .tier-points {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-bottom: 10px;
+  }
+  .tier-discount {
+    font-size: 44px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .tier-discount span {
+    font-size: 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+  .tier-label {
+    font-size: 13px;
+    opacity: 0.9;
+    margin-top: 2px;
+  }
+
+  /* HOW TO */
+  .steps { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+  .step {
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border: 1.5px solid #f5dde5;
+    box-shadow: 0 2px 8px rgba(232,65,106,0.06);
+  }
+  .step-num {
+    width: 32px; height: 32px;
+    background: var(--pink);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .step-text { font-size: 14px; line-height: 1.5; padding-top: 4px; }
+  .step-text strong { color: var(--pink); display: block; margin-bottom: 2px; }
+
+  /* REWARDS */
+  .rewards-list { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+  .reward-item {
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1.5px solid #f5dde5;
+    box-shadow: 0 2px 8px rgba(232,65,106,0.06);
+    position: relative;
+  }
+  .reward-item.diamond-only {
+    border-color: var(--pink);
+    background: linear-gradient(135deg, #fff5f8 0%, #fff 100%);
+  }
+  .reward-points {
+    background: var(--pink);
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 72px;
+    flex-shrink: 0;
+    line-height: 1.1;
+  }
+  .reward-points span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    display: block;
+    opacity: 0.9;
+  }
+  .reward-item.diamond-only .reward-points { background: linear-gradient(135deg, var(--pink), #c02050); }
+  .reward-info { flex: 1; }
+  .reward-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .reward-desc { font-size: 13px; color: #888; }
+  .diamond-tag {
+    position: absolute;
+    top: -1px; right: 12px;
+    background: var(--pink);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 0 0 8px 8px;
+    letter-spacing: 0.5px;
+  }
+
+  /* CONTACT */
+  .contact-box {
+    background: linear-gradient(135deg, var(--pink) 0%, #c02050 100%);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 4px;
+    text-align: center;
+    color: #fff;
+  }
+  .contact-box h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .hotline-list { display: flex; flex-direction: column; gap: 10px; }
+  .hotline-item {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hotline-label { font-size: 13px; opacity: 0.85; }
+  .hotline-number {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 24px 16px;
+    font-size: 12px;
+    color: #aaa;
+    border-top: 1px solid #f5dde5;
+    margin-top: 32px;
+  }
+  footer strong { color: var(--pink); }
+
+  /* WAVE DIVIDER */
+  .wave {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-bottom: -2px;
+  }
+  .wave svg { display: block; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">AZ <span>TEA</span></div>
+  <p>TRÀ NGON · VỊ ĐẬM · TOPPING TƯƠI</p>
+  <div class="header-badge">✦ CHƯƠNG TRÌNH THÀNH VIÊN ✦</div>
+</header>
+
+<main>
+
+  <!-- TÍCH ĐIỂM -->
+  <div class="section-title">CÁCH TÍCH ĐIỂM</div>
+
+  <div class="points-box">
+    <div class="points-icon">🧋</div>
+    <div>
+      <div class="points-rule">
+        1.000đ = 1 điểm
+        <span>Áp dụng cho tất cả đơn hàng tại AZ Tea</span>
+      </div>
+    </div>
+  </div>
+  <div class="points-note">
+    📱 Báo số điện thoại <strong>TRƯỚC khi thanh toán</strong> để tích điểm vào tài khoản thành viên
+  </div>
+
+  <!-- HẠNG THÀNH VIÊN -->
+  <div class="section-title">HẠNG THÀNH VIÊN</div>
+
+  <div class="tiers">
+    <div class="tier-card silver">
+      <div class="tier-header">
+        <div class="tier-name">HẠNG BẠC</div>
+        <div class="tier-icon">🥈</div>
+      </div>
+      <div class="tier-points">Tích lũy từ 2.000 điểm</div>
+      <div class="tier-discount">-5% <span>mỗi đơn</span></div>
+      <div class="tier-label">Giảm 5% trên tổng hóa đơn</div>
+    </div>
+
+    <div class="tier-card gold">
+      <div class="tier-header">
+        <div class="tier-name">HẠNG VÀNG</div>
+        <div class="tier-icon">🥇</div>
+      </div>
+      <div class="tier-points">Tích lũy từ 4.000 điểm</div>
+      <div class="tier-discount">-8% <span>mỗi đơn</span></div>
+      <div class="tier-label">Giảm 8% trên tổng hóa đơn</div>
+    </div>
+
+    <div class="tier-card diamond">
+      <div class="tier-header">
+        <div class="tier-name">KIM CƯƠNG</div>
+        <div class="tier-icon">💎</div>
+      </div>
+      <div class="tier-points">Tích lũy từ 6.000 điểm</div>
+      <div class="tier-discount">-10% <span>mỗi đơn</span></div>
+      <div class="tier-label">Giảm 10% trên tổng hóa đơn</div>
+    </div>
+  </div>
+
+  <!-- CÁCH DÙNG -->
+  <div class="section-title">CÁCH SỬ DỤNG</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <strong>Báo số điện thoại</strong>
+        Thông báo số điện thoại với nhân viên trước khi thanh toán
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <strong>Tích điểm tự động</strong>
+        Điểm được cộng ngay sau mỗi lần mua — 1.000đ = 1 điểm
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <strong>Lên hạng & nhận ưu đãi</strong>
+        Đủ điểm → tự động lên hạng → giảm giá áp dụng cho mọi đơn tiếp theo
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text">
+        <strong>Áp dụng tại tất cả chi nhánh</strong>
+        Ưu đãi thành viên áp dụng toàn hệ thống AZ Tea
+      </div>
+    </div>
+  </div>
+
+  <!-- ĐỔI QUÀ -->
+  <div class="section-title">ĐỔI ĐIỂM LẤY QUÀ</div>
+
+  <div class="rewards-list">
+    <div class="reward-item">
+      <div class="reward-points">100<span>điểm</span></div>
+      <div class="reward-info">
+        <div class="reward-name">🧋 1 Phần Topping Tự Chọn</div>
+        <div class="reward-desc">Chọn bất kỳ topping yêu thích trong menu</div>
+      </div>
+    </div>
+    <div class="reward-item">
+      <div class="reward-points">150<span>điểm</span></div>
+      <div class="reward-info">
+        <div class="reward-name">📏 Free Upsize</div>
+        <div class="reward-desc">Nâng cỡ ly miễn phí cho đơn hiện tại</div>
+      </div>
+    </div>
+    <div class="reward-item">
+      <div class="reward-points">500<span>điểm</span></div>
+      <div class="reward-info">
+        <div class="reward-name">🎉 1 Ly Nước Bất Kỳ</div>
+        <div class="reward-desc">Chọn tự do bất kỳ món nào trong menu AZ Tea</div>
+      </div>
+    </div>
+    <div class="reward-item diamond-only">
+      <div class="diamond-tag">💎 KIM CƯƠNG</div>
+      <div class="reward-points">1000<span>điểm</span></div>
+      <div class="reward-info">
+        <div class="reward-name">🎁 Khui Quà Ngẫu Nhiên</div>
+        <div class="reward-desc">Quà bí ẩn đặc biệt — chỉ dành riêng cho thành viên Kim Cương</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIÊN HỆ -->
+  <div class="section-title">LIÊN HỆ HỖ TRỢ</div>
+
+  <div class="contact-box">
+    <h3>📞 HOTLINE AZ TEA</h3>
+    <div class="hotline-list">
+      <div class="hotline-item">
+        <span class="hotline-label">Hỗ trợ thành viên</span>
+        <a href="tel:0585544559" class="hotline-number">0585 544 559</a>
+      </div>
+      <div class="hotline-item">
+        <span class="hotline-label">Đặt hàng & tư vấn</span>
+        <a href="tel:0399333544" class="hotline-number">0399 333 544</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <strong>AZ TEA</strong> — Trà ngon · Vị đậm · Topping tươi<br>
+  Giá có thể thay đổi theo thời điểm · Ưu đãi áp dụng theo chính sách hiện hành
+</footer>
+
+</body>
+</html>
